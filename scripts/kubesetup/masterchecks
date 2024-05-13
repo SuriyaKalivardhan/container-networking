@@ -1,0 +1,17 @@
+kubectl get pods -n kube-system
+
+kubectl get --raw='/readyz?verbose'
+
+#Join the other nodes
+kubectl label node suriyak-cni-node1 node-role.kubernetes.io/worker=worker
+kubectl label node suriyak-cni-node1 node-role.kubernetes.io/worker=worker
+
+
+kubectl apply -f metrics-server.yaml
+kubectl top nodes
+kubectl top pods -n kube-system
+
+
+
+kubectl get pods -o wide
+kubectl get pods nginx-deployment-5b9455bc67-7p2d6  -o custom-columns=NAME:metadata.name,IP:status.podIP
